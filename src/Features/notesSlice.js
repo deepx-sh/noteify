@@ -17,12 +17,31 @@ export const notesSlice = createSlice({
     },
     updateToNotes: (state,action) => {
       
+      const note = action.payload;
+      const index = state.notes.findIndex((item) => item._id === note._id);
+      
+      if (index >= 0) {
+        state.notes[index] = note;
+        localStorage.setItem("notes", JSON.stringify(state.notes))
+        toast.success("Note updated successfully!");
+      }
     },
     resetAllNotes: (state, action) => {
-     
+      state.notes = [];
+      localStorage.removeItem("notes");
+      toast.success("All notes have been reset!");
       },
       deleteFromNotes: (state, action) => {
-        
+        const noteId = action.payload;
+
+        const index = state.action.findIndex((item) => item._id == noteId);
+
+        if (index >= 0) {
+          state.notes.splice(index, 1);
+          localStorage.setItem("notes", JSON.stringify(state.notes));
+
+            toast.success("Note deleted successfully!");
+        }
     }
   },
 })

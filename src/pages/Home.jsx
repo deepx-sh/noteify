@@ -20,7 +20,7 @@ export default function Home() {
 
         if (noteId) {
             // Update Note
-            dispatch(updateToNotes())
+            dispatch(updateToNotes(note))
         } else {
             // Create Note
             dispatch(addToNotes(note))
