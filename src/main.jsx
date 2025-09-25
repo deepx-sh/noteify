@@ -9,7 +9,7 @@ import Layout from './Layout.jsx';
 import Home from './pages/Home.jsx';
 import Notes from './pages/Notes.jsx';
 import ViewNote from './pages/ViewNote.jsx';
-
+import {Toaster} from 'react-hot-toast'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
@@ -23,9 +23,10 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store} >
       <RouterProvider router={router}>
-          <App />
+        <App />
+        
       </RouterProvider>
-      
+      <Toaster position='top-right'/>
     </Provider>
     
   </StrictMode>,
