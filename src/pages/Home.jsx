@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router";
 import { addToNotes, updateToNotes } from "../Features/notesSlice";
 
@@ -9,15 +9,28 @@ export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const noteId = searchParams.get("noteId");
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const allNotes = useSelector((state) => state.notes.notes)
+  
+     useEffect(() => {
+       if (noteId) {
+       const note = allNotes.find((note) => note._id === noteId);
+      console.log(note);
+      console.log(note.title);
+      
+     setTitle(note.title);
+     setValue(note.content);
+     }
+      },[noteId])
     function createNote() {
         const note = {
             title: title,
             content: value,
             _id: noteId || Date.now().toString(),
             createdAt: new Date().toISOString()
-        }
-
+      }
+      
+     
         if (noteId) {
             // Update Note
             dispatch(updateToNotes(note))
@@ -29,7 +42,9 @@ export default function Home() {
         setTitle('');
         setValue('')
         setSearchParams({})
-    }
+  }
+  
+
   return (
     <div className="max-w-4xl mx-auto p-6 space-y-6">
       <div className="flex flex-col sm:flex-row gap-4">

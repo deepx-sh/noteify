@@ -18,7 +18,10 @@ export const notesSlice = createSlice({
     updateToNotes: (state,action) => {
       
       const note = action.payload;
+      console.log(note);
+      
       const index = state.notes.findIndex((item) => item._id === note._id);
+      console.log(index);
       
       if (index >= 0) {
         state.notes[index] = note;

@@ -26,7 +26,7 @@ createRoot(document.getElementById('root')).render(
         <App />
         
       </RouterProvider>
-      <Toaster position='top-right'/>
+      <Toaster/>
     </Provider>
     
   </StrictMode>,

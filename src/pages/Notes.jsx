@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteFromNotes } from "../Features/notesSlice";
 import toast from "react-hot-toast";
-
+import { Link } from "react-router";
 export default function Notes() {
   const [searchQuery, setSearchQuery] = useState("");
   const notes = useSelector((state) => state.notes.notes);
@@ -37,9 +37,11 @@ export default function Notes() {
                 <div>{note.content}</div>
 
                 <div>
-                  <button>View</button>
+                  <button>
+                    <Link to={`/notes/${note._id}`}>View</Link>
+                  </button>
 
-                  <button>Edit</button>
+                  <button><Link to={`/?noteId=${note._id}`}>Edit</Link></button>
 
                   <button onClick={()=> handleDelete(note?._id)}>Delete</button>
 
