@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useSearchParams } from "react-router";
+import { useNavigate, useSearchParams } from "react-router";
 import { addToNotes, updateToNotes } from "../Features/notesSlice";
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
   const noteId = searchParams.get("noteId");
   const dispatch = useDispatch();
   const allNotes = useSelector((state) => state.notes.notes)
-  
+  const navigate = useNavigate();
      useEffect(() => {
        if (noteId) {
        const note = allNotes.find((note) => note._id === noteId);
@@ -33,7 +33,9 @@ export default function Home() {
      
         if (noteId) {
             // Update Note
-            dispatch(updateToNotes(note))
+          dispatch(updateToNotes(note))
+          navigate("/notes")
+          
         } else {
             // Create Note
             dispatch(addToNotes(note))

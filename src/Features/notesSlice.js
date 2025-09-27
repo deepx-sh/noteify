@@ -1,9 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 import toast from 'react-hot-toast';
 
+
 const initialState = {
   notes: localStorage.getItem("notes") ? JSON.parse(localStorage.getItem("notes")) :[]
 }
+
 
 export const notesSlice = createSlice({
   name: 'notes',
@@ -26,6 +28,7 @@ export const notesSlice = createSlice({
       if (index >= 0) {
         state.notes[index] = note;
         localStorage.setItem("notes", JSON.stringify(state.notes))
+   
         toast.success("Note updated successfully!");
       }
     },
