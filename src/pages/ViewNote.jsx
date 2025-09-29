@@ -1,5 +1,4 @@
 import React from 'react'
-import toast from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router';
 
@@ -11,9 +10,9 @@ export default function ViewNote() {
   const note = allNotes.find((n) => n._id === id);
   
   return (
-    <div>
-      <h4>{note.title}</h4>
-      <p>{ note.content}</p>
+    <div className='max-w-4xl mx-auto p-6 space-y-6'>
+      <h4 className=''>{note.title}</h4>
+      <p className=''>{ note.content}</p>
     </div>
   )
 }
