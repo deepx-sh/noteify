@@ -27,7 +27,8 @@ export default function Home() {
             title: title,
             content: value,
             _id: noteId || Date.now().toString(),
-            createdAt: new Date().toISOString()
+          createdAt: new Date().toISOString(),
+          updatedAt:new Date().toISOString(),
       }
       
      
