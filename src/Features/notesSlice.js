@@ -13,6 +13,10 @@ export const notesSlice = createSlice({
   reducers: {
     addToNotes: (state,action) => {
       const note = action.payload;
+      if (note.title === "" || note.content === "") {
+        toast.error("Title and Content cannot be empty!");
+        return;
+      }
       state.notes.push(note);
       localStorage.setItem("notes", JSON.stringify(state.notes));
       toast.success("Note added successfully!");

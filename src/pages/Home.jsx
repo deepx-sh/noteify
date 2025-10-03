@@ -57,6 +57,7 @@ export default function Home() {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent placeholder-gray-500 text-gray-900 bg-white shadow-sm transition-all duration-200"
+        required
         />
 
         <button onClick={createNote} className="px-6 py-3 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:bg-blue-800 transition-all duration-200 shadow-sm hover:shadow-md whitespace-nowrap cursor-pointer">
@@ -71,6 +72,7 @@ export default function Home() {
           placeholder="Enter content here"
           onChange={(e) => setValue(e.target.value)}
           rows={20}
+          required
         ></textarea>
       </div>
     </div>
