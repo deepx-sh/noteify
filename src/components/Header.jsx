@@ -3,8 +3,8 @@ import { NavLink ,Link} from "react-router";
 export default function Header() {
   return (
     <header className="bg-white shadow-sm border-b border-gray-100">
-      <nav className="container mx-auto flex items-center justify-center px-6 py-5 relative">
-        <div className="absolute left-6 flex items-center space-x-2">
+      <nav className="container mx-auto flex items-center justify-between md:justify-center px-4  sm:px-6 py-4 md:py-5 md:relative">
+        <div className="md:absolute md:left-6 flex items-center space-x-2">
           <div className="w-7 h-7 bg-purple-600 rounded-md flex items-center justify-center">
             <svg
               className="w-4 h-4 text-white"
