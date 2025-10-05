@@ -7,7 +7,7 @@ import { deleteFromNotes } from '../Features/notesSlice';
 export default function ViewNote() {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const navigator = useNavigate();
+  const navigate = useNavigate();
   const allNotes = useSelector((state) => state.notes.notes);
   
   const note = allNotes.find((n) => n._id === id);
@@ -15,7 +15,7 @@ export default function ViewNote() {
   function handleDelete(noteId) {
     dispatch(deleteFromNotes(noteId));
     toast.success("Note deleted successfully!")
-    navigator('/notes');
+    navigate('/notes');
   }
   return (
     <div className='max-w-4xl mx-auto p-6'>
@@ -40,6 +40,8 @@ export default function ViewNote() {
           <button onClick={() => {
             navigator.clipboard.writeText(note?.content)
             toast.success("Note copied to clipboard!")
+            console.log("Copied");
+            
             
           }} className='flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 hover:bg-green-200 transition-colors duration-200 text-sm font-medium rounded-lg'><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
