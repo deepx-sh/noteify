@@ -10,12 +10,14 @@ import Home from './pages/Home.jsx';
 import Notes from './pages/Notes.jsx';
 import ViewNote from './pages/ViewNote.jsx';
 import {Toaster} from 'react-hot-toast'
+import NotFound from './pages/NotFound.jsx';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
       <Route path='' element={<Home />}></Route>
       <Route path='notes' element={<Notes />}></Route>
-      <Route path='notes/:id' element={<ViewNote/>}></Route>
+      <Route path='notes/:id' element={<ViewNote />}></Route>
+      <Route path='*' element={<NotFound/>}></Route>
     </Route>
   )
 )
