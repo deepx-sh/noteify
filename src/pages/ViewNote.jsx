@@ -14,7 +14,7 @@ export default function ViewNote() {
   
   function handleDelete(noteId) {
     dispatch(deleteFromNotes(noteId));
-    toast.success("Note deleted successfully!")
+
     navigate('/notes');
   }
   return (
