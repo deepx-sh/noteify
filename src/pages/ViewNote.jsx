@@ -40,7 +40,7 @@ export default function ViewNote() {
           <button onClick={() => {
             navigator.clipboard.writeText(note?.content)
             toast.success("Note copied to clipboard!")
-            console.log("Copied");
+            
             
             
           }} className='flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 hover:bg-green-200 transition-colors duration-200 text-sm font-medium rounded-lg'><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -66,7 +66,7 @@ export default function ViewNote() {
                         if (error.name === "AbortError") {
                           toast("Share cancelled");
                         } else {
-                          console.log("Error sharing", error);
+                          
                           const shareLink = `${window.location.origin}/notes/${note._id}`;
                           await navigator.clipboard.writeText(shareLink);
                           toast.success("Link copied to clipboard");

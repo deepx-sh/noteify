@@ -15,8 +15,7 @@ export default function Home() {
      useEffect(() => {
        if (noteId) {
        const note = allNotes.find((note) => note._id === noteId);
-      console.log(note);
-      console.log(note.title);
+      
       
      setTitle(note.title);
      setValue(note.content);

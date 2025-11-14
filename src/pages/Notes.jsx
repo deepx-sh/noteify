@@ -13,7 +13,7 @@ export default function Notes() {
   );
 
   function handleDelete(noteId) {
-    console.log(noteId);
+    
 
     dispatch(deleteFromNotes(noteId));
   }
@@ -182,7 +182,7 @@ export default function Notes() {
                         if (error.name === "AbortError") {
                           toast("Share cancelled");
                         } else {
-                          console.log("Error sharing", error);
+                          
                           const shareLink = `${window.location.origin}/notes/${note._id}`;
                           await navigator.clipboard.writeText(shareLink);
                           toast.success("Link copied to clipboard");
